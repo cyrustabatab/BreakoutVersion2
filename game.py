@@ -38,6 +38,8 @@ game_over_text = font.render("GAME OVER",True,WHITE)
 game_over_text_rect = game_over_text.get_rect(center=(WIDTH//2,HEIGHT//2 +50))
 game_over_text_2 = font.render("Hit Enter to Play Again!",True,WHITE)
 game_over_text_rect_2 = game_over_text_2.get_rect(center=(WIDTH//2,game_over_text_rect.bottom + 50))
+winner_text = font.render("YOU WIN",True,WHITE)
+winner_text_rect = winner_text.get_rect(center=(WIDTH//2,HEIGHT//2 +50))
 
 started = False
 
@@ -49,6 +51,12 @@ def reset():
     paddle.sprite.reset()
     wall.reset()
 
+def is_win():
+
+
+    return wall.bricks.has()
+
+winner = False
 while True:
 
 
@@ -62,6 +70,8 @@ while True:
             if event.key == pygame.K_RETURN:
                 started = False
                 game_over = False
+                if winner:
+                    winner = False
                 reset()
     
     
@@ -71,6 +81,15 @@ while True:
 
         paddle.update(pressed_keys)
         game_over = ball.sprite.update(paddle.sprite,wall.bricks)
+    
+    
+    if is_win():
+        winner = True
+        game_over = True
+
+
+
+
 
             
     screen.fill(BGCOLOR)
@@ -81,7 +100,10 @@ while True:
     if not started:
         screen.blit(start_text,start_text_rect)
     elif game_over:
-        screen.blit(game_over_text,game_over_text_rect)
+        if not winner:
+            screen.blit(game_over_text,game_over_text_rect)
+        else:
+            screen.blit(winner_text,winner_text_rect)
         screen.blit(game_over_text_2,game_over_text_rect_2)
 
 
