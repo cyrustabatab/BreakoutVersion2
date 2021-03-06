@@ -4,11 +4,12 @@ import pygame
 RED = (255,0,0)
 GREEN = (0,255,0)
 BLUE = (0,0,255)
+PURPLE = (128,0,128)
 
 class Brick(pygame.sprite.Sprite):
     
 
-    color_mapping = {1: BLUE,2: GREEN,3: RED}
+    color_mapping = {1: BLUE,2: GREEN,3: RED,4: PURPLE}
 
     def __init__(self,x,y,width,height,hits_required=1):
         super().__init__()

@@ -39,13 +39,13 @@ class Ball(pygame.sprite.Sprite):
         self.pos += self.vel
 
         self.rect.x,self.rect.y = self.pos.x,self.pos.y
-        if self.pos.x < 0:
+        if self.pos.x <= 0:
             self.vel.x *= -1
-        elif self.pos.x + self.rect.width > self.screen_width:
+        elif self.pos.x + self.rect.width >= self.screen_width:
             self.vel.x *= -1
-        elif self.pos.y < 0:
+        elif self.pos.y <= 0:
             self.vel.y *= -1
-        elif self.pos.y  + self.rect.height> self.screen_height:
+        elif self.pos.y  + self.rect.height>= self.screen_height:
             return True
 
 

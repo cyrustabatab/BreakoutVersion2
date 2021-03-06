@@ -8,10 +8,10 @@ from ball import Ball
 
 
 BRICK_WIDTH,BRICK_HEIGHT = 100,50
-ROWS = 6
-COLS = 6
+ROWS = 8
+COLS = 10
 GAP_BETWEEN = 5
-WIDTH,HEIGHT = BRICK_WIDTH * COLS + GAP_BETWEEN * (COLS - 1),600
+WIDTH,HEIGHT = BRICK_WIDTH * COLS + GAP_BETWEEN * (COLS - 1),800
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
 clock = pygame.time.Clock()
 FPS = 60
@@ -54,7 +54,7 @@ def reset():
 def is_win():
 
 
-    return wall.bricks.has()
+    return not wall.bricks
 
 winner = False
 while True:

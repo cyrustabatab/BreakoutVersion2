@@ -34,7 +34,7 @@ class Wall(pygame.sprite.Sprite):
         
 
         for col in range(self.cols):
-            hits_required = 4
+            hits_required = 5
             for row in range(self.rows):
                 if row % 2 == 0:
                     hits_required -= 1
